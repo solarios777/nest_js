@@ -1,4 +1,5 @@
 import { CreateUserDtos } from './dtos/create-user.dto';
+import { UpdateUserDtos } from './dtos/update-user.dto';
 export declare class UsersController {
     getUser(limit: number, page: number): {
         id: number;
@@ -17,4 +18,5 @@ export declare class UsersController {
         email: string;
     };
     createUser(user: CreateUserDtos): string;
+    updateUser(user: UpdateUserDtos): string;
 }
