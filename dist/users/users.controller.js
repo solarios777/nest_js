@@ -18,18 +18,18 @@ const users_service_1 = require("./users.service");
 const create_user_dto_1 = require("./dtos/create-user.dto");
 const update_user_dto_1 = require("./dtos/update-user.dto");
 let UsersController = class UsersController {
+    constructor(userService) {
+        this.userService = userService;
+    }
     getUser(limit, page) {
-        const userService = new users_service_1.UserService();
-        return userService.getAllUsers();
+        return this.userService.getAllUsers();
     }
     getUserById(id) {
-        const userService = new users_service_1.UserService();
-        return userService.getUserById(id);
+        return this.userService.getUserById(id);
     }
     createUser(user) {
-        const userService = new users_service_1.UserService();
         console.log(user);
-        userService.createUser(user);
+        this.userService.createUser(user);
         return 'success';
     }
     updateUser(user) {
@@ -68,6 +68,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "updateUser", null);
 exports.UsersController = UsersController = __decorate([
-    (0, common_1.Controller)('users')
+    (0, common_1.Controller)('users'),
+    __metadata("design:paramtypes", [users_service_1.UserService])
 ], UsersController);
 //# sourceMappingURL=users.controller.js.map

@@ -5,22 +5,23 @@ import { UpdateUserDtos } from './dtos/update-user.dto';
 
 @Controller('users')
 export class UsersController {
+  constructor(private userService: UserService) {}
   @Get()
-  getUser(@Query('limit', new DefaultValuePipe(3), ParseIntPipe) limit:number, @Query('page', new DefaultValuePipe(1), ParseIntPipe) page:number) {
-    const userService = new UserService();
-    return userService.getAllUsers();
+  getUser(@Query('limit', new DefaultValuePipe(3), ParseIntPipe) limit: number, @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number) {
+   
+    return this.userService.getAllUsers();
   }
 
   @Get(':id')
   getUserById(@Param('id',ParseIntPipe) id: any) {
-    const userService = new UserService();
-    return userService.getUserById(id);
+
+    return this.userService.getUserById(id);
   }
   @Post()
   createUser(@Body() user:CreateUserDtos) {
-    const userService = new UserService();
+    
     console.log(user);
-    userService.createUser(user);
+    this.userService.createUser(user);
     return 'success';
   }
 

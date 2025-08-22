@@ -9,12 +9,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TweetModule = void 0;
 const common_1 = require("@nestjs/common");
 const tweet_controller_1 = require("./tweet.controller");
+const tweet_service_1 = require("./tweet.service");
+const users_module_1 = require("../users/users.module");
 let TweetModule = class TweetModule {
 };
 exports.TweetModule = TweetModule;
 exports.TweetModule = TweetModule = __decorate([
     (0, common_1.Module)({
         controllers: [tweet_controller_1.TweetController],
+        providers: [tweet_service_1.TweetService],
+        imports: [users_module_1.UsersModule],
     })
 ], TweetModule);
 //# sourceMappingURL=tweet.module.js.map
