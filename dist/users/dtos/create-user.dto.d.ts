@@ -5,4 +5,5 @@ export declare class CreateUserDtos {
     gender: string;
     email: string;
     isMerried: boolean;
+    password: string;
 }

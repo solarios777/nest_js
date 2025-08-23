@@ -11,7 +11,8 @@ export declare class UsersController {
         gender: string;
         isMerried: boolean;
         email: string;
-    }[];
+        password: string;
+    }[] | "You are not authenticated";
     getUserById(id: any): {
         id: number;
         name: string;
@@ -19,6 +20,7 @@ export declare class UsersController {
         gender: string;
         isMerried: boolean;
         email: string;
+        password: string;
     };
     createUser(user: CreateUserDtos): string;
     updateUser(user: UpdateUserDtos): string;

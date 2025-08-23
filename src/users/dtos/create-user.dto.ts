@@ -18,4 +18,7 @@ export class CreateUserDtos {
 
     @IsBoolean()
     isMerried: boolean;
+
+    @IsString()
+    password: string
 }
